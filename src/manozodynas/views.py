@@ -9,6 +9,7 @@ from django.views.generic import CreateView, ListView, DeleteView
 class WordDelete(DeleteView):
     model = Word
     success_url = '/words'
+    template_name = 'manozodynas/word_delete.html'
 
 class WordList(ListView):
     model = Word
