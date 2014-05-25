@@ -5,13 +5,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from .views import index_view, login_view
 
-from .views import WordCreate, WordList
+from .views import WordCreate, WordList, WordDelete
 
 urlpatterns = patterns('',
     url(r'^$', index_view, name='index'),
     url(r'^login$', login_view, name='login'),
     url(r'^words$', WordList.as_view(), name='words'),
     url(r'^word$', WordCreate.as_view(), name='word'),
+    url(r'^word/(?P<pk>\d+)/delete/$', WordDelete.as_view(), name='word_delete'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

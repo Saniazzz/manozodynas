@@ -4,7 +4,11 @@ from django.core.urlresolvers import reverse
 from .forms import LoginForm
 from django.contrib.auth import login
 from manozodynas.models import *
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DeleteView
+
+class WordDelete(DeleteView):
+    model = Word
+    success_url = '/words'
 
 class WordList(ListView):
     model = Word
