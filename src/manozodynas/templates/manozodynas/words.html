@@ -17,7 +17,7 @@
 
     <ul>
     {% for word in object_list %}
-	<li>{{ word.word }} {% if word.type != "" %} ({{ word.type }}) {% endif %} 
+	<li>{{ word.word }} {% if word.type != "" %} - {{ word.type }} {% endif %} 
 	    <a href="word/{{word.id}}/delete" class="list-button">Ištrinti</a></li>
     {% empty %}
         <li>Žodžių sąrašas yra tuščias.</li>

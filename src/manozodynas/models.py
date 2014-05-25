@@ -61,10 +61,3 @@ class Word(models.Model):
     def __str__(self):
         return "%s - %s" % (self.word, self.type)
 
-class Translation(models.Model):
-    translation = models.CharField(max_length=35)
-    srcWord = models.ManyToManyField('Word')
-    description = models.TextField(null=True)
-
-    def __str__(self):
-        return self.translation

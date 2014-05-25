@@ -13,7 +13,7 @@ class WordDelete(DeleteView):
 
 class WordList(ListView):
     model = Word
-    paginate_by = 3
+    paginate_by = 5
     success_url = 'index/'
     template_name = 'manozodynas/words.html'
     def get_context_data(self, **kwargs):
