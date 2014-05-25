@@ -5,9 +5,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from .views import index_view, login_view
 
+from .views import WordCreate, WordList
+
 urlpatterns = patterns('',
     url(r'^$', index_view, name='index'),
     url(r'^login$', login_view, name='login'),
+    url(r'^words$', WordList.as_view(), name='words'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

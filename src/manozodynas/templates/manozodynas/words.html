@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Words</title>
+</head>
+
+<body>
+    <div>
+        <ul
+            <li><a href="/">Pradžia</a></li>
+            <li><a href="words">Žodžiai</a></li>
+        </ul>
+    </div>
+
+    <ul>
+    {% for word in object_list %}
+        <li>{{ word.word }} ({{ word.type }})</li>
+    {% empty %}
+        <li>Žodžių sąrašas yra tuščias.</li>
+    {% endfor %}
+
+        <div>
+            <div>
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </div>
+            <span>
+                {% if page_obj.has_previous %}
+                    <a href="/words?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a href="/words?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+</body>
+</html>

@@ -3,6 +3,17 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .forms import LoginForm
 from django.contrib.auth import login
+from manozodynas.models import *
+from django.views.generic import CreateView, ListView
+
+class WordList(ListView):
+    model = Word
+    paginate_by = 3
+    success_url = 'index/'
+    template_name = 'manozodynas/words.html'
+    def get_context_data(self, **kwargs):
+        context = super(WordList, self).get_context_data(**kwargs)
+        return context
 
 def index_view(request):
     return render(request, 'manozodynas/index.html', {})
