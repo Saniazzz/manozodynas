@@ -15,6 +15,11 @@ class WordList(ListView):
         context = super(WordList, self).get_context_data(**kwargs)
         return context
 
+class WordCreate(CreateView):
+    model = Word
+    template_name = 'manozodynas/word.html'
+    success_url = '/words'
+
 def index_view(request):
     return render(request, 'manozodynas/index.html', {})
 

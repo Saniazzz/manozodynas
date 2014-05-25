@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^$', index_view, name='index'),
     url(r'^login$', login_view, name='login'),
     url(r'^words$', WordList.as_view(), name='words'),
+    url(r'^word$', WordCreate.as_view(), name='word'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
